@@ -17,8 +17,10 @@ return new class extends Migration
             $table->text('contenu');
             $table->string('image');
             $table->boolean('estAnonyme');
+            // clé étrangere
             $table->unsignedBigInteger('parent')->nullable();
             $table->foreign('parent')->references('id')->on('publications')->onDelete('cascade');
+            // fin clé entragere
             $table->date('date_creation');
             $table->boolean('commentairesActive');
             $table->unsignedBigInteger('auteur');

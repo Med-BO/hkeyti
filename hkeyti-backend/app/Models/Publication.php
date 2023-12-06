@@ -21,6 +21,7 @@ class Publication extends Model
         'categorie',
     ];
 
+    // fonciton pour indiquer a laravel qu'il s'agit d'une clé étrangere
     public function parentPublication()
     {
         return $this->belongsTo(self::class, 'parent');
