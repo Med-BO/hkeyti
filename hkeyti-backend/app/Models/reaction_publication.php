@@ -14,4 +14,14 @@ class reaction_publication extends Model
         'auteur',
         'publication'
     ];
+
+    public function auteur()
+    {
+        return $this->belongsTo(membre::class, 'auteur');
+    }
+
+    public function publication()
+    {
+        return $this->belongsTo(Publication::class, 'publication');
+    }
 }

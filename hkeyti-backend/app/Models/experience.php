@@ -19,4 +19,14 @@ class experience extends Model
         'auteur',
         'categorie'
     ];
+
+    public function auteur()
+    {
+        return $this->belongsTo(membre::class, 'auteur');
+    }
+
+    public function categorie()
+    {
+        return $this->belongsTo(categorie::class, 'categorie');
+    }
 }

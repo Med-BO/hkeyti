@@ -13,4 +13,14 @@ class activier_notification extends Model
         'publication',
         'membre',
     ];
+
+    public function publication()
+    {
+        return $this->belongsTo(Publication::class, 'publication');
+    }
+
+    public function membre()
+    {
+        return $this->belongsTo(Membre::class, 'membre');
+    }
 }

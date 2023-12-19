@@ -13,4 +13,14 @@ class appliquer_etiquette extends Model
         'publication',
         'etiquette',
     ];
+
+    public function publication()
+    {
+        return $this->belongsTo(Publication::class, 'publication');
+    }
+
+    public function etiquette()
+    {
+        return $this->belongsTo(etiquette::class, 'etiquette');
+    }
 }

@@ -22,20 +22,20 @@ class Publication extends Model
         'categorie',
     ];
 
-    // fonciton pour indiquer a laravel qu'il s'agit d'une clé étrangere
-    public function parentPublication()
+    // fonction pour indiquer a laravel qu'il s'agit d'une clé étrangere
+    // Pour récupérer la publication parente de cet objet on fait: $publication->parent
+    public function parent()
     {
         return $this->belongsTo(self::class, 'parent');
     }
 
-    public function author()
+    public function auteur()
     {
         return $this->belongsTo(Membre::class, 'auteur');
     }
 
-    public function category()
+    public function categorie()
     {
         return $this->belongsTo(Categorie::class, 'categorie');
     }
-
 }

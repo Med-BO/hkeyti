@@ -16,4 +16,14 @@ class notification extends Model
         'objet',
         'membre'
     ];
+
+    public function objet()
+    {
+        return $this->belongsTo(Publication::class, 'objet');
+    }
+
+    public function membre()
+    {
+        return $this->belongsTo(membre::class, 'membre');
+    }
 }

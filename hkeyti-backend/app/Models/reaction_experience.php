@@ -14,4 +14,14 @@ class reaction_experience extends Model
         'auteur',
         'experience'
     ];
+
+    public function auteur()
+    {
+        return $this->belongsTo(membre::class, 'auteur');
+    }
+
+    public function experience()
+    {
+        return $this->belongsTo(Experience::class, 'experience');
+    }
 }
