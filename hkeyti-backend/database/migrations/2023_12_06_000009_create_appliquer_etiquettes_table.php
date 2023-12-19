@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notifications', function (Blueprint $table) {
+        Schema::create('appliquer_etiquettes', function (Blueprint $table) {
             $table->id();
-            $table->string('titre');
-            $table->string('contenu');
-            $table->string('type');
             $table->unsignedBigInteger('publication');
-            $table->foreign('publication')->references('id')->on('objet');
-            $table->unsignedBigInteger('membre');
-            $table->foreign('membre')->references('id')->on('membre');
+            $table->foreign('publication')->references('id')->on('publications');
+            $table->unsignedBigInteger('etiquette');
+            $table->foreign('etiquette')->references('id')->on('etiquettes');
         });
     }
 
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notifications');
+        Schema::dropIfExists('appliquer_etiquettes');
     }
 };

@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activier_notifications', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('publication');
-            $table->foreign('publication')->references('id')->on('publication');
+            $table->string('titre');
+            $table->string('contenu');
+            $table->string('type');
+            $table->unsignedBigInteger('objet');
+            $table->foreign('objet')->references('id')->on('publications');
             $table->unsignedBigInteger('membre');
-            $table->foreign('membre')->references('id')->on('membre');
+            $table->foreign('membre')->references('id')->on('membres');
         });
     }
 
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('activier_notifications');
+        Schema::dropIfExists('notifications');
     }
 };

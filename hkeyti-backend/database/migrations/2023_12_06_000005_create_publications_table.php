@@ -24,9 +24,9 @@ return new class extends Migration
             $table->date('date_creation');
             $table->boolean('commentairesActive');
             $table->unsignedBigInteger('auteur');
-            $table->foreign('auteur')->references('id')->on('membre');
+            $table->foreign('auteur')->references('id')->on('membres');
             $table->unsignedBigInteger('categorie');
-            $table->foreign('categorie')->references('id')->on('categorie');
+            $table->foreign('categorie')->references('id')->on('categories');
         });
     }
 

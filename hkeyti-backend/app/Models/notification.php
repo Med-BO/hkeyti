@@ -12,6 +12,8 @@ class notification extends Model
     protected $fillable = [
         'titre',
         'contenu',
-        'type'
+        'type',
+        'objet',
+        'membre'
     ];
 }

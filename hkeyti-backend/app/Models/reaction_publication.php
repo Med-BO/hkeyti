@@ -10,6 +10,8 @@ class reaction_publication extends Model
     use HasFactory;
     protected $table = "reaction_publications";
     protected $fillable = [
-        'type'
+        'type',
+        'auteur',
+        'publication'
     ];
 }

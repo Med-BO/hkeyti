@@ -10,6 +10,8 @@ class reaction_experience extends Model
     use HasFactory;
     protected $table = "reaction_experiences";
     protected $fillable = [
-        'type'
+        'type',
+        'auteur',
+        'experience'
     ];
 }

@@ -19,9 +19,9 @@ return new class extends Migration
             $table->boolean('estAnonyme');
             $table->date('date_creation');
             $table->unsignedBigInteger('auteur');
-            $table->foreign('auteur')->references('id')->on('membre');
+            $table->foreign('auteur')->references('id')->on('membres');
             $table->unsignedBigInteger('categorie');
-            $table->foreign('categorie')->references('id')->on('categorie');
+            $table->foreign('categorie')->references('id')->on('categories');
         });
     }
 

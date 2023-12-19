@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appliquer_etiquettes', function (Blueprint $table) {
+        Schema::create('reaction_publications', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->unsignedBigInteger('auteur');
+            $table->foreign('auteur')->references('id')->on('membres');
             $table->unsignedBigInteger('publication');
-            $table->foreign('publication')->references('id')->on('publication');
-            $table->unsignedBigInteger('etiquette');
-            $table->foreign('etiquette')->references('id')->on('ettiquette');
+            $table->foreign('publication')->references('id')->on('publications');
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appliquer_etiquettes');
+        Schema::dropIfExists('reaction_publications');
     }
 };

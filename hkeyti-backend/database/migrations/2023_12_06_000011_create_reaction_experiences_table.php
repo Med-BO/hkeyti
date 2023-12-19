@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->unsignedBigInteger('auteur');
-            $table->foreign('auteur')->references('id')->on('membre');
+            $table->foreign('auteur')->references('id')->on('membres');
             $table->unsignedBigInteger('experience');
-            $table->foreign('experience')->references('id')->on('experience');
+            $table->foreign('experience')->references('id')->on('experiences');
         });
     }
 
