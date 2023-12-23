@@ -7,18 +7,22 @@ import { PostCreationComponent } from './pages/post-creation/post-creation.compo
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PostCategoriesComponent } from './pages/post-categories/post-categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostCreationComponent,
     NavbarComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    PostCategoriesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
