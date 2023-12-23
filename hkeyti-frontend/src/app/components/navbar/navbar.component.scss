@@ -1,0 +1,40 @@
+.navbar-container {
+    background: rgba(21, 200, 187, 0.58);
+    border-bottom: 1px solid #e6e6e6;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    height: 60px;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+
+    & .navbar-logo img {
+        height: 50px;
+        padding: 0 20px;
+    }
+
+    & .navbar-links {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: flex-end;
+        margin-right: 20px;
+        & a {
+            color: #000;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+    }
+
+    & .navbar-login {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: flex-end;
+        margin-right: 20px;
+    }
+}

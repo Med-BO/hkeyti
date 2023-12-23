@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+.primary-btn {
+    padding: 8px 14px;
+    background-color: #15c8bb94;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+    border: none;
+    color: #FFF;
+    font-family: 'Segoe UI', sans-serif;
+
+    &:hover {
+        background-color: #15c8bb;
+    }
+}
+
+.secondary-btn {
+    padding: 8px 14px;
+    background-color: #fff;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+    border: none;
+    color: #15c8bb;
+    font-family: 'Segoe UI', sans-serif;
+
+    &:hover {
+        background-color: #e6e6e6;
+    }
+}

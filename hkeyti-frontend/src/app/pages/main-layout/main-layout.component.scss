@@ -1,0 +1,18 @@
+.main-app-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.main-app-content {
+    margin: 12px;
+    height: -webkit-fill-available;
+}
