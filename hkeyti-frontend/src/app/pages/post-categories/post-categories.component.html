@@ -1,1 +1,23 @@
-<p>post-categories works!</p>
+<div class="main-container container-box">
+    <div class="container-header">
+        <div class="page-title">
+            Catégories
+        </div>
+        <div class="page-subtitle">
+            Les catégories dans lesquelles vous pouvez publier vos questions
+        </div>
+    </div>
+    <div class="container-content">
+        <div class="categories-container">
+            <div class="category-container" *ngFor="let categorie of categories">
+                <div class="category-textual-infos">
+                    <div class="category-title">{{ categorie.titre }}</div>
+                    <div class="category-description">{{ categorie.description }}</div>
+                </div>
+                <div class="category-img">
+                    <img src="../../../assets/img/categories/sante.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

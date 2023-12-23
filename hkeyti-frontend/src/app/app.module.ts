@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PostCategoriesComponent } from './pages/post-categories/post-categories.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PostCategoriesComponent } from './pages/post-categories/post-categories
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

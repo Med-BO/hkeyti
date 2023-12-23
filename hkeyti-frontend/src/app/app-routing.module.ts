@@ -4,9 +4,10 @@ import { PostCreationComponent } from './pages/post-creation/post-creation.compo
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { PostCategoriesComponent } from './pages/post-categories/post-categories.component';
 
+// The route names should in french
 const routes: Routes = [
   { path: "hkeyti", component: MainLayoutComponent, children: [
-      { path: "create-post", component: PostCreationComponent },
+      { path: "creer-publication", component: PostCreationComponent },
       { path: "publications", children: [
           { path: "categories", component: PostCategoriesComponent },
         ] 
