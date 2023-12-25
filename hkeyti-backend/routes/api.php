@@ -23,4 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Group routes that start with /publications
 Route::prefix("publications")->group(function () {
     Route::get("categories", "App\Http\Controllers\CategorieController@getAll");
+    Route::get("categorie/{category_id}", "App\Http\Controllers\PublicationController@get_all_by_category");
 });
+
+Route::get("categorie/{category_id}", "App\Http\Controllers\CategorieController@get_category_by_id");

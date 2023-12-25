@@ -1,0 +1,105 @@
+<div class="posts-category-header">
+    <div class="left-part">
+        <div class="search-bar">
+            <div class="search-btn">
+                <label for="search">Search for stuff</label>
+                <input id="search" type="search" placeholder="Search..." autofocus required />
+                <button type="submit">Chercher</button>    
+            </div>
+            <div class="category-title">{{ category.titre }}</div>
+        </div>
+    </div>
+    <div class="right-part">
+        <img src="../../../assets/img/categories/sante.png" alt="">
+    </div>
+</div>
+<div class="main-container container-box">
+    <div class="container-header">
+        <div class="page-title">
+            Discussion
+        </div>
+        <div class="page-subtitle">
+            
+        </div>
+    </div>
+    <div class="container-content d-flex flex-column align-items-center">
+        <div class="w-100 d-flex justify-content-center" *ngIf="loader">
+            <span class="loader"></span>
+        </div>
+        <div class="add-post-container" *ngIf="!loader">
+            <form action="">
+                <div class="header">
+                    <img src="https://ui-avatars.com/api/?background=random&name=test+test&rounded=true" alt="" class="member-avatar">
+                    <div class="post-title">
+                        <label for="title">Titre</label>
+                        <input type="text" placeholder="Posez votre question..." name="title" id="title">
+                    </div>
+                </div>
+                <div class="body">
+                    <label for="content">Description</label>
+                    <textarea name="content" placeholder="Décrivez votre situation" id="content"></textarea>
+                    <button type="submit" class="primary-btn">Publier</button>
+                </div>
+            </form>
+        </div>
+        <div class="posts-container">
+            <div class="post-container" *ngFor="let post of posts">
+                <div class="post-header">
+                    <div class="author-avatar">
+                        <img src="https://ui-avatars.com/api/?background=random&name=test+test&rounded=true" alt="">
+                    </div>
+                    <div class="publishing-details">
+                        <div class="author-name">
+                            {{ post.auteur.prenom }} {{ post.auteur.nom }}
+                        </div>
+                        <div class="post-date">
+                            {{ post.date_creation | date: 'dd/MM/yyyy' }}
+                        </div>
+                    </div>
+                    <div class="action-btn">
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                              <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <h5>{{ post.titre }}</h5>
+                    {{ post.contenu }}
+                </div>
+                <div class="post-footer">
+                    <div class="reactions">
+                        <div class="reaction-container">
+                            <div class="reaction-icon">
+                                <i class="fas fa-thumbs-up"></i>
+                            </div>
+                            <div class="reaction-count">
+                                12
+                            </div>
+                        </div>
+                        <div class="reaction-container">
+                            <div class="reaction-icon">
+                                <i class="fas fa-thumbs-down"></i>
+                            </div>
+                            <div class="reaction-count">
+                                1
+                            </div>
+                        </div>
+                        <div class="reaction-container">
+                            <div class="reaction-icon">
+                                <i class="fa fa-heart"></i>
+                            </div>
+                            <div class="reaction-count">
+                                3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-comment">
+                        <input type="text" placeholder="Ajouter un commentaire...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

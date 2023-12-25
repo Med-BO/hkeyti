@@ -8,7 +8,10 @@
         </div>
     </div>
     <div class="container-content">
-        <div class="categories-container">
+        <div class="w-100 d-flex justify-content-center">
+            <span class="loader" *ngIf="loader"></span>
+        </div>
+        <div class="categories-container" *ngIf="!loader">
             <div class="category-container" *ngFor="let categorie of categories">
                 <div class="category-textual-infos">
                     <div class="category-title">{{ categorie.titre }}</div>

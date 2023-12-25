@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PostCreationComponent } from './pages/post-creation/post-creation.component';
 import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { PostCategoriesComponent } from './pages/post-categories/post-categories.component';
+import { PostsComponent } from './pages/posts/posts.component';
 
 // The route names should in french
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
       { path: "creer-publication", component: PostCreationComponent },
       { path: "publications", children: [
           { path: "categories", component: PostCategoriesComponent },
+          { path: "categorie/:categoryId", component: PostsComponent },
         ] 
       },
     ] 

@@ -5,7 +5,7 @@
 
 .primary-btn {
     padding: 8px 14px;
-    background-color: #15c8bb94;
+    background-color: #15c8bb;
     height: 40px;
     display: inline-flex;
     justify-content: center;
@@ -17,7 +17,7 @@
     font-family: 'Segoe UI', sans-serif;
 
     &:hover {
-        background-color: #15c8bb;
+        background-color: #15c8bb94;
     }
 }
 
@@ -69,3 +69,26 @@
     max-height: -webkit-fill-available;
     overflow-y: auto;
 }
+
+.loader {
+    width: 100%;
+    margin: auto 0;
+    width: 48px;
+    height: 48px;
+    background: #15c8bb;
+    display: inline-block;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: animloader 1s ease-in infinite;
+  }
+  
+  @keyframes animloader {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  } 

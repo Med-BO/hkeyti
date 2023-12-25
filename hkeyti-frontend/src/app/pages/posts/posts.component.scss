@@ -1,0 +1,210 @@
+.posts-category-header {
+    max-height: 320px;
+    min-height: 320px;
+    background: #15C8BB94;
+    margin:  -12px 0 20px -12px;
+    width: calc(100% + 24px);
+    display: flex;
+    align-items: center;
+    & .left-part {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & .category-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: capitalize;
+            margin: 0;
+        }
+    }
+    & .right-part {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+}
+
+.search-btn {
+    position: relative;
+    width: 30rem;
+    background: #57bd84;
+    border-radius: .7rem;
+    & input, button {
+        height: 3rem;
+        border: 0;
+        color: #2f2f2f;
+        font-size: 1.4rem;
+      }
+      & input[type="search"] {
+        outline: 0; // <-- shold probably remove this for better accessibility, adding for demo aesthetics for now.
+        width: 100%;
+        background: #fff;
+        padding: 0 1.6rem;
+        border-radius: .7rem;
+        appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
+        transition: all .3s cubic-bezier(0, 0, 0.43, 1.49);
+        transition-property: width, border-radius;
+        z-index: 1;
+        position: relative;
+      }
+      & button {
+        display: none; // prevent being able to tab to it
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 6rem;
+        font-size: 1.2rem;
+        color: white;
+        font-weight: bold;
+        background: #57bd84;
+        border-radius: 0 .7rem .7rem 0;
+      }
+      & input:not(:placeholder-shown) {
+        border-radius: .7rem 0 0 .7rem;
+        width: calc(100% - 6rem);
+        + button {
+          display: block;
+        }
+      }
+      & label {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+      }
+}
+
+.add-post-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6vh;
+    & form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        & .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            & .post-title {
+                width: 90%;
+                & input {
+                    width: 100%;
+                    border-radius: 10px;
+                    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.25);
+                    border: none;
+                    padding: 10px;
+                }
+            }
+            & .member-avatar {
+                width: 8%;
+                margin-right: 2%;
+            }  
+        }
+        & .body {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            & textarea {
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                border: none;
+                padding: 10px;
+            }
+            & button {
+                width: 10%;
+                align-self: flex-end;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+.posts-container {
+    width: 60%;
+    padding: 12px;
+    border-radius: 22px;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.25);
+    margin-bottom: 30px;
+    & .post-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        & .author-avatar {
+            width: 8%;
+            margin-right: 1%;
+        }
+        & .action-btn {
+            margin-left: auto;
+            & button {
+                background: none;
+                border: none;
+            }
+        }
+    }
+    & .post-content {
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: 10px;
+    }
+    & .post-footer {
+        display: flex;
+        align-items: center;
+        & .reactions {
+            width: 28%;
+            margin-right: 2%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            & .reaction-container {
+                position: relative;
+                & .reaction-icon {
+                    font-size: 1.6rem;
+                    cursor: pointer;
+                    &:hover {
+                        font-size: 1.8rem;
+                        transition: all 0.1s ease-in-out;
+                    }
+                }
+                & .reaction-count {
+                    background: red;
+                    position: absolute;
+                    bottom: -20%;
+                    right: -80%;
+                    padding: 4px;
+                    border-radius: 100px;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                }
+            }
+        }
+        & .add-comment {
+            width: 70%;
+            & input {
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                border: none;
+                padding: 10px;
+            }
+        }
+    }
+}

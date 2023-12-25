@@ -10,6 +10,7 @@ import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PostCategoriesComponent } from './pages/post-categories/post-categories.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostsComponent } from './pages/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     PostCreationComponent,
     NavbarComponent,
     MainLayoutComponent,
-    PostCategoriesComponent
+    PostCategoriesComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
