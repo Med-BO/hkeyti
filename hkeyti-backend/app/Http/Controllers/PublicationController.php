@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\membre;
 use App\Models\Publication;
 
 use Illuminate\Http\Request;
@@ -16,6 +18,11 @@ class PublicationController extends Controller
     public function get_all_by_category($category_id)
     {
         $publications = Publication::where('categorie', $category_id)->get();
+        foreach ($publications as $publication) {
+            $publication->auteur = membre::find($publication->auteur);
+            $comments = Publication::where('parent', $publication->id)->get();
+            $publication->commentaires = $comments;
+        }
         return response()->json($publications, 200);
     }
 }

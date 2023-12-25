@@ -12,10 +12,14 @@ export class Publication {
   commentairesActive!: boolean;
   auteur!: Membre;
   categorie!: Categorie;
+  commentaires!: Publication[];
 
   deserialize(input: any): this {
     this.auteur = new Membre().deserialize(input.auteur);
     this.categorie = new Categorie().deserialize(input.categorie);
+    if (input.commentaires) {
+      this.commentaires = input.commentaires.map((commentaire: any) => new Publication().deserialize(commentaire));
+    }
 
     return Object.assign(this, input);
   }
