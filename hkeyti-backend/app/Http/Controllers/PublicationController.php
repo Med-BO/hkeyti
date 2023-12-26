@@ -25,4 +25,19 @@ class PublicationController extends Controller
         }
         return response()->json($publications, 200);
     }
+
+    public function add_post(Request $request)
+    {
+        $publication = new Publication();
+        $publication->titre = $request->titre;
+        $publication->contenu = $request->contenu;
+        $publication->categorie = $request->categorie;
+        $publication->auteur = $request->auteur;
+        $publication->date_creation = date('Y-m-d H:i:s');
+        if ($request->estAnonyme) {
+            $publication->estAnonyme = 1;
+        }
+        $publication->save();
+        return response()->json($publication, 200);
+    }
 }

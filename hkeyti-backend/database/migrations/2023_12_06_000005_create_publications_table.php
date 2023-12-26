@@ -15,14 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('titre', 100);
             $table->text('contenu');
-            $table->string('image');
-            $table->boolean('estAnonyme');
+            $table->boolean('estAnonyme')->default(false);
             // clé étrangere
             $table->unsignedBigInteger('parent')->nullable();
             $table->foreign('parent')->references('id')->on('publications')->onDelete('cascade');
             // fin clé entragere
             $table->date('date_creation');
-            $table->boolean('commentairesActive');
+            $table->boolean('commentairesActive')->default(true);
             $table->unsignedBigInteger('auteur');
             $table->foreign('auteur')->references('id')->on('membres');
             $table->unsignedBigInteger('categorie');

@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('email');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->date('date_naissance');
             $table->string('genre');
             $table->string('mot_de_passe');
-            $table->string('statut');
+            $table->string('statut')->default('desactive');
         });
     }
 

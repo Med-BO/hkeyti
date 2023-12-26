@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('titre', 100);
             $table->text('contenu');
-            $table->string('image');
-            $table->boolean('estAnonyme');
+            $table->boolean('estAnonyme')->default(false);
             $table->date('date_creation');
             $table->unsignedBigInteger('auteur');
             $table->foreign('auteur')->references('id')->on('membres');

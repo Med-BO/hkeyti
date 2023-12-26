@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('image_experiences', function (Blueprint $table) {
             $table->id();
-           $table->string('titre');
-           $table->string('description');
-           $table->string('image')->nullable();
+            $table->text('image');
+            $table->unsignedBigInteger('experience');
+            $table->foreign('experience')->references('id')->on('experiences')->onDelete('cascade');
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('image_experiences');
     }
 };
