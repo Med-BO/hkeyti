@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Publication } from '../models/publication.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,9 @@ export class PublicationsService {
 
   getCategoryById(categoryId: number) {
     return this.http.get(`http://localhost:8000/api/categorie/${categoryId}`);
+  }
+
+  addPost(post: Map<string, any>) {
+    return this.http.post(`${this.API_URI}/add`, post);
   }
 }

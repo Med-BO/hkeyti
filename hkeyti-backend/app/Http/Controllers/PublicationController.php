@@ -35,7 +35,7 @@ class PublicationController extends Controller
         $publication->auteur = $request->auteur;
         $publication->date_creation = date('Y-m-d H:i:s');
         if ($request->estAnonyme) {
-            $publication->estAnonyme = 1;
+            $publication->estAnonyme = true;
         }
         $publication->save();
         return response()->json($publication, 200);

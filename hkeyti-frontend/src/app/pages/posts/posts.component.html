@@ -42,7 +42,7 @@
                 </div>
             </form>
         </div>
-        <div class="posts-container">
+        <div class="posts-container" *ngIf="posts.length != 0">
             <div class="post-container" *ngFor="let post of posts">
                 <div class="post-header">
                     <div class="author-avatar">
@@ -100,6 +100,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="no-posts-container" *ngIf="posts.length === 0 && !loader">
+            <h3>Pas de publications dans cette catégorie</h3>
+            <button class="primary-btn">Publier</button>
         </div>
     </div>
 </div>

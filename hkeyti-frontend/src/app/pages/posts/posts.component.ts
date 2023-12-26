@@ -51,4 +51,21 @@ export class PostsComponent implements OnInit {
     );
   }
 
+  addPost() {
+    const requestBody = new Map<string, any>();
+    requestBody.set('titre', 'Mon titre');
+    this.publicationService.addPost(requestBody)
+    .subscribe(
+      {
+        next: (data: any) => {
+          const addedPost = new Publication().deserialize(data);
+          this.posts.push(addedPost);
+        },
+        error: (err: any) => {
+          console.error('error', err);
+        }
+      }
+    );
+  }
+
 }
