@@ -7,6 +7,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NsihetMjarrebComponent } from './pages/nsihet-mjarreb/nsihet-mjarreb.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 // The route names should in french
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
         ] 
       },
       { path: "nsihet-mjarreb", component: NsihetMjarrebComponent },
+      { path: "profil", component: ProfileComponent },
     ] 
   }
 ];

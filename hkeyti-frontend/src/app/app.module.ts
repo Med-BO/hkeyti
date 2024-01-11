@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NsihetMjarrebComponent } from './pages/nsihet-mjarreb/nsihet-mjarreb.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NsihetMjarrebComponent } from './pages/nsihet-mjarreb/nsihet-mjarreb.co
     PostsComponent,
     LoginComponent,
     HomeComponent,
-    NsihetMjarrebComponent
+    NsihetMjarrebComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
