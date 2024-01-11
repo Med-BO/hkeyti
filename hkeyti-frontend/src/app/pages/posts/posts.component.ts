@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Categorie } from 'src/app/data/models/categorie.model';
 import { Membre } from 'src/app/data/models/membre.model';
 import { Publication } from 'src/app/data/models/publication.model';
+import { ReactionPublication } from 'src/app/data/models/reaction-publication.model';
 import { PublicationsService } from 'src/app/data/services/publications-service.service';
 
 @Component({
@@ -70,6 +71,7 @@ export class PostsComponent implements OnInit {
           for (let post of data) {
             this.posts.push(new Publication().deserialize(post));
           }
+          this.treatPostsReactions();
           console.log(this.posts)
           this.loader = false
         },
@@ -79,6 +81,29 @@ export class PostsComponent implements OnInit {
         }
       }
     );
+  }
+
+  treatPostsReactions() {
+    for (let post of this.posts) {
+      post.treatedReactions = {
+        likes: 0,
+        dislikes: 0,
+        loves: 0
+      }
+      for (let react of post.reactions) {
+        if (react.type === '1') {
+          post.treatedReactions.likes++;
+        } else if (react.type === '2') {
+          post.treatedReactions.dislikes++;
+        } else if (react.type === '3') {
+          post.treatedReactions.loves++;
+        }
+        // Check if the current user reacted to this post
+        if (react.auteur.id === this.user.id) {
+          post.treatedReactions.userReaction = react.type;
+        }
+      }
+    }
   }
 
   addPost() {
@@ -136,4 +161,53 @@ export class PostsComponent implements OnInit {
     this.commentToAdd.contenu = event.target.value;
   }
 
+  reactToPost(postId: number, reaction: string) {
+    // If the user hasn't already reacted to the post
+    if (!this.posts.find((post) => post.id === postId)!.treatedReactions.userReaction) {
+      this.publicationService.reactToPost(postId, this.user.id, reaction).subscribe({
+        next: (data: any) => {
+          const post = this.posts.find((post) => post.id === postId);
+          post!.reactions.push(new ReactionPublication().deserialize(data));
+          post!.treatedReactions.userReaction = reaction;
+          if (reaction === '1') {
+            post!.treatedReactions.likes++;
+          } else if (reaction === '2') {
+            post!.treatedReactions.dislikes++;
+          } else if (reaction === '3') {
+            post!.treatedReactions.loves++;
+          }
+        },
+        error: (err: any) => {
+          console.error('error', err);
+        }
+      });
+    }
+    else {
+      this.publicationService.updateReactionToPost(postId, this.user.id, reaction).subscribe({
+        next: (data: any) => {
+          const post = this.posts.find((post) => post.id === postId);
+          const reaction = post!.reactions.find((reaction) => reaction.auteur.id === this.user.id);
+          if (reaction!.type === '1') {
+            post!.treatedReactions.likes--;
+          } else if (reaction!.type === '2') {
+            post!.treatedReactions.dislikes--;
+          } else if (reaction!.type === '3') {
+            post!.treatedReactions.loves--;
+          }
+          reaction!.type = data.type;
+          if (data.type === '1') {
+            post!.treatedReactions.likes++;
+          } else if (data.type === '2') {
+            post!.treatedReactions.dislikes++;
+          } else if (data.type === '3') {
+            post!.treatedReactions.loves++;
+          }
+          post!.treatedReactions.userReaction = data.type;
+        },
+        error: (err: any) => {
+          console.error('error', err);
+        }
+      });
+    }
+  }
 }

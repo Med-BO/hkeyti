@@ -9,6 +9,7 @@ class appliquer_etiquette extends Model
 {
     use HasFactory;
     protected $table="appliquer_etiquettes";
+    public $timestamps = false;
     protected $fillable = [
         'publication',
         'etiquette',

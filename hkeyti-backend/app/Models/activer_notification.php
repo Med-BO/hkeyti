@@ -9,6 +9,7 @@ class activier_notification extends Model
 {
     use HasFactory;
     protected $table = "activer_notifications";
+    public $timestamps = false;
     protected $fillable = [
         'publication',
         'membre',

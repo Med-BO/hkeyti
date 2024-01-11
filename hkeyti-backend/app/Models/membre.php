@@ -10,6 +10,7 @@ class membre extends Model
     use HasFactory;
 
     protected $table = "membres";
+    public $timestamps = false;
 
     protected $fillable = [
         'nom',

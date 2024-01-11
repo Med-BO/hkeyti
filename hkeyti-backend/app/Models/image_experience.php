@@ -9,6 +9,7 @@ class image_experience extends Model
 {
     use HasFactory;
     protected $table = "image_experiences";
+    public $timestamps = false;
     protected $fillable = [
         'image',
         'experience',

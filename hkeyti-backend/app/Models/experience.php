@@ -9,6 +9,7 @@ class experience extends Model
 {
     use HasFactory;
     protected $table = "experiences";
+    public $timestamps = false;
 
     protected $fillable = [
         'titre',

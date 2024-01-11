@@ -9,6 +9,7 @@ class activite extends Model
 {
     use HasFactory;
     protected $table = "activites";
+    public $timestamps = false;
     protected $fillable = [
         'type'
     ];

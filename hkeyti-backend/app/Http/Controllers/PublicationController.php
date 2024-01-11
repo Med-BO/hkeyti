@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\membre;
 use App\Models\Publication;
-
+use App\Models\reaction_publication;
 use Illuminate\Http\Request;
 
 class PublicationController extends Controller
@@ -25,6 +25,11 @@ class PublicationController extends Controller
                 $comment->auteur = membre::find($comment->auteur);
             }
             $publication->commentaires = $comments;
+            $reactions = reaction_publication::where('publication', $publication->id)->get();
+            foreach ($reactions as $reaction) {
+                $reaction->auteur = membre::find($reaction->auteur);
+            }
+            $publication->reactions = $reactions;
         }
         return response()->json($publications, 200);
     }

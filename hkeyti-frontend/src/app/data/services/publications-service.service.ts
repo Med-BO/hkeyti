@@ -26,4 +26,22 @@ export class PublicationsService {
   addPost(post: Map<string, any>) {
     return this.http.post(`${this.API_URI}/ajouter`, post);
   }
+
+  reactToPost(postId: number, userId: number, reactionType: string) {
+    return this.http.post(
+      `${this.API_URI}/${postId}/reagir`, 
+      { 
+        'publication': postId, 'auteur': userId, 'type_reaction': reactionType 
+      }
+    );
+  }
+
+  updateReactionToPost(postId: number, userId: number, reactionType: string) {
+    return this.http.put(
+      `${this.API_URI}/${postId}/reagir`, 
+      { 
+        'publication': postId, 'auteur': userId, 'type_reaction': reactionType 
+      }
+    );
+  }
 }

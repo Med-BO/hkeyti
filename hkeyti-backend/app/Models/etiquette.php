@@ -9,6 +9,7 @@ class etiquette extends Model
 {
     use HasFactory;
     protected $table = "etiquettes";
+    public $timestamps = false;
 
     protected $fillable = [
         'titre',

@@ -9,6 +9,7 @@ class notification extends Model
 {
     use HasFactory;
     protected $table = "notifications";
+    public $timestamps = false;
     protected $fillable = [
         'titre',
         'contenu',

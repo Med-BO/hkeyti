@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\ReactionPublicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::prefix("publications")->group(function () {
     Route::get("categories", "App\Http\Controllers\CategorieController@getAll");
     Route::get("categorie/{category_id}", "App\Http\Controllers\PublicationController@get_all_by_category");
     Route::post("ajouter", "App\Http\Controllers\PublicationController@add_post");
+    Route::prefix("{publication_id}")->group(function () {
+        Route::post("reagir", "App\Http\Controllers\ReactionPublicationController@add_publication_reaction");
+        Route::put("reagir", "App\Http\Controllers\ReactionPublicationController@update_publication_reaction");
+    });
 });
 
 Route::get("categorie/{category_id}", "App\Http\Controllers\CategorieController@get_category_by_id");

@@ -1,5 +1,6 @@
 import { Membre } from './membre.model';
 import { Categorie } from './categorie.model';
+import { ReactionPublication } from './reaction-publication.model';
 
 export class Publication {
   id!: number;
@@ -13,6 +14,8 @@ export class Publication {
   auteur!: Membre;
   categorie!: Categorie;
   commentaires!: Publication[];
+  reactions!: ReactionPublication[];
+  treatedReactions!: any;
 
   deserialize(input: any): this {
     this.auteur = new Membre().deserialize(input.auteur);

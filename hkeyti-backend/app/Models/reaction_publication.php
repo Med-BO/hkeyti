@@ -9,6 +9,7 @@ class reaction_publication extends Model
 {
     use HasFactory;
     protected $table = "reaction_publications";
+    public $timestamps = false;
     protected $fillable = [
         'type',
         'auteur',
