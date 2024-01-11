@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('publications', function (Blueprint $table) {
             $table->id();
-            $table->string('titre', 100);
+            $table->string('titre', 100)->nullable();
             $table->text('contenu');
             $table->boolean('estAnonyme')->default(false);
             // clé étrangere

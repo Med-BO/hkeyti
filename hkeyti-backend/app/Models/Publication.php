@@ -9,6 +9,7 @@ class Publication extends Model
 {
     use HasFactory;
     protected $table = "publications";
+    public $timestamps = false;
 
     protected $fillable = [
         'titre',

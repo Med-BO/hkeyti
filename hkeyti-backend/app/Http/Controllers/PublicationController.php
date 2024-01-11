@@ -21,6 +21,9 @@ class PublicationController extends Controller
         foreach ($publications as $publication) {
             $publication->auteur = membre::find($publication->auteur);
             $comments = Publication::where('parent', $publication->id)->get();
+            foreach ($comments as $comment) {
+                $comment->auteur = membre::find($comment->auteur);
+            }
             $publication->commentaires = $comments;
         }
         return response()->json($publications, 200);
@@ -36,6 +39,9 @@ class PublicationController extends Controller
         $publication->date_creation = date('Y-m-d H:i:s');
         if ($request->estAnonyme) {
             $publication->estAnonyme = true;
+        }
+        if ($request->parent) {
+            $publication->parent = $request->parent;
         }
         $publication->save();
         return response()->json($publication, 200);

@@ -24,6 +24,6 @@ export class PublicationsService {
   }
 
   addPost(post: Map<string, any>) {
-    return this.http.post(`${this.API_URI}/add`, post);
+    return this.http.post(`${this.API_URI}/ajouter`, post);
   }
 }
