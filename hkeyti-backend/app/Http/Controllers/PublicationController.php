@@ -49,6 +49,7 @@ class PublicationController extends Controller
             $publication->parent = $request->parent;
         }
         $publication->save();
+        $publication->auteur = membre::find($publication->auteur);
         return response()->json($publication, 200);
     }
 }

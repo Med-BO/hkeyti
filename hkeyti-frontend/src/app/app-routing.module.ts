@@ -6,6 +6,7 @@ import { PostCategoriesComponent } from './pages/post-categories/post-categories
 import { PostsComponent } from './pages/posts/posts.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NsihetMjarrebComponent } from './pages/nsihet-mjarreb/nsihet-mjarreb.component';
 
 // The route names should in french
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
           { path: "categorie/:categoryId", component: PostsComponent },
         ] 
       },
+      { path: "nsihet-mjarreb", component: NsihetMjarrebComponent },
     ] 
   }
 ];

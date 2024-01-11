@@ -3,13 +3,77 @@
         <img src="assets/img/logos/logo_colored.png" alt="logo" />
     </div>
     <div class="navbar-links">
-        <a routerLink="/home" routerLinkActive="active">Accueil</a>
-        <a routerLink="/about" routerLinkActive="active">Publications</a>
-        <a routerLink="/contact" routerLinkActive="active">Nsihet Mjarreb</a>
+        <a routerLink="/hkeyti/accueil" routerLinkActive="active">Accueil</a>
+        <a routerLink="/hkeyti/publications/categories" routerLinkActive="active">Publications</a>
+        <a routerLink="/hkeyti/nsihet-mjarreb" routerLinkActive="active">Nsihet Mjarreb</a>
     </div>
-    <div class="navbar-login">
-        <a style="text-decoration: none;" class="secondary-btn" routerLink="" routerLinkActive="active">
-            <i class="fa fa-sign-in-alt"></i>
-        </a>
+    <div class="navbar-user-buttons">
+        <div class="navbar-notifications" (click)="toggleNotifications()">
+            <a style="text-decoration: none;" class="secondary-btn">
+                <i class="fa fa-bell"></i>
+            </a>
+            <div class="notifications-counter">
+                3
+            </div>
+        </div>
+        <div class="notifications-container" *ngIf="notificationIsOpen">
+            <div class="notifications-header">
+                <div class="notifications-title">
+                    Notifications
+                </div>
+                <div class="notifications-archive">
+                    Archive
+                </div>
+            </div>
+            <div class="notifications-body">
+                <div class="notification-container">
+                    <div class="notification-icon">
+                        <i class="fa fa-bell"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">
+                            Title
+                        </div>
+                        <div class="notification-text">
+                            Test lroem upsjsdjklfhsdjklTest 
+                        </div>
+                    </div>
+                </div>
+                <div class="notification-container">
+                    <div class="notification-icon">
+                        <i class="fa fa-bell"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">
+                            Title
+                        </div>
+                        <div class="notification-text">
+                            Test lroem upsjsdjklfhsdjklTest 
+                        </div>
+                    </div>
+                </div>
+                <div class="notification-container">
+                    <div class="notification-icon">
+                        <i class="fa fa-bell"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">
+                            Title
+                        </div>
+                        <div class="notification-text">
+                            Test lroem upsjsdjklfhsdjklTest 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="notifications-footer">
+                See all notifications
+            </div>
+        </div>
+        <div class="navbar-login">
+            <a style="text-decoration: none;" class="secondary-btn" routerLink="" routerLinkActive="active">
+                <i class="fa fa-sign-in-alt"></i>
+            </a>
+        </div>
     </div>
 </div>

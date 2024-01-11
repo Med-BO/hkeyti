@@ -113,6 +113,12 @@ export class PostsComponent implements OnInit {
       {
         next: (data: any) => {
           const addedPost = new Publication().deserialize(data);
+          addedPost.treatedReactions = {
+            likes: 0,
+            dislikes: 0,
+            loves: 0
+          }
+          addedPost.reactions = [];
           this.posts.unshift(addedPost);
           this.addLoader = false;
           this.postToAdd = {
