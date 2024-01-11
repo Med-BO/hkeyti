@@ -1,0 +1,17 @@
+<div class="main-container">
+    <div class="logo-container">
+        <img src="assets/img/logos/logo_colored.png" alt="logo">
+    </div>
+    <div class="login-form-container">
+        <input type="text" class="form-text-input" name="email" placeholder="Adresse Email">
+        <input type="text" class="form-text-input" name="password" placeholder="Mot de passe">
+        <div class="w-100" style="display: flex; flex-direction: column;">
+            <button class="login-btn" (click)="login()">
+                <span *ngIf="!loader">Se Connecter</span>
+                <div *ngIf="loader" class="loader"></div>
+            </button>
+            <span class="forgot-password">Mot de passe oublié ?</span>
+        </div>
+        <button class="signup-btn">Créer un compte</button>
+    </div>
+</div>

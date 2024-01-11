@@ -12,6 +12,8 @@ import { PostCategoriesComponent } from './pages/post-categories/post-categories
 import { HttpClientModule } from '@angular/common/http';
 import { PostsComponent } from './pages/posts/posts.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     MainLayoutComponent,
     PostCategoriesComponent,
-    PostsComponent
+    PostsComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
