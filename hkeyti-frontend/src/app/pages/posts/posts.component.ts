@@ -118,6 +118,7 @@ export class PostsComponent implements OnInit {
             dislikes: 0,
             loves: 0
           }
+          addedPost.commentaires = [];
           addedPost.reactions = [];
           this.posts.unshift(addedPost);
           this.addLoader = false;

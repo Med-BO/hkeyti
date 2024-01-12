@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicationsService } from 'src/app/data/services/publications-service.service';
 import { Categorie } from 'src/app/data/models/categorie.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-categories',
@@ -11,7 +12,7 @@ export class PostCategoriesComponent implements OnInit {
   categories: Categorie[] = [];
   loader: boolean = true;
 
-  constructor(private publicationsService: PublicationsService) { }
+  constructor(private publicationsService: PublicationsService, private router: Router) { }
 
   ngOnInit(): void {
     this.publicationsService.getAllCategories()
@@ -32,4 +33,7 @@ export class PostCategoriesComponent implements OnInit {
     );
   }
 
+  goToCategory(categoryId: number) {
+    this.router.navigate(['/hkeyti/publications/categorie', categoryId]);
+  }
 }

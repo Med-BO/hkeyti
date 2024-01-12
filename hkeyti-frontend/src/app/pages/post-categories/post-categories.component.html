@@ -12,13 +12,15 @@
             <span class="loader" *ngIf="loader"></span>
         </div>
         <div class="categories-container" *ngIf="!loader">
-            <div class="category-container" *ngFor="let categorie of categories">
+            <div class="category-container" *ngFor="let categorie of categories" (click)="goToCategory(categorie.id)">
                 <div class="category-textual-infos">
                     <div class="category-title">{{ categorie.titre }}</div>
                     <div class="category-description">{{ categorie.description }}</div>
                 </div>
                 <div class="category-img">
-                    <img src="../../../assets/img/categories/sante.png" alt="">
+                    <img src="../../../assets/img/categories/sante.png" alt="" *ngIf="categorie.titre === 'Santé'">
+                    <img src="../../../assets/img/categories/sentimentale.png" alt="" *ngIf="categorie.titre === 'Sentimentale'">
+                    <img src="../../../assets/img/categories/sociale.png" alt="" *ngIf="categorie.titre === 'Sociale'">
                 </div>
             </div>
         </div>
